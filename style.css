@@ -1,0 +1,410 @@
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&family=Nunito&display=swap");
+
+/* || RESET */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea {
+  font: inherit;
+}
+
+/* || VARIABLES */
+:root {
+  /* FONTS */
+  --FF: "Nunito", sans-serif;
+  --FF-HEADINGS: "Fugaz One", cursive;
+  --FS: clamp(1rem, 2.2vh, 1.5rem);
+
+  /* COLORS */
+  --BGCOLOR-FADE: rgb(252, 220, 160);
+  --BGCOLOR: orange;
+  --BGIMAGE: linear-gradient(to bottom, var(--BGCOLOR), var(--BGCOLOR-FADE));
+  --BODY-BGCOLOR: #FFF;
+  --BORDER-COLOR: #333;
+  --FONT-COLOR: #000;
+  --HEADER-BGCOLOR: black;
+  --HEADER-COLOR: white;
+  --HERO-BGCOLOR: rgba(51, 178, 51, 0.75);
+  --HERO-COLOR: white;
+  --HIGHLIGHT-COLOR: rgb(51, 178, 51);
+  --LINK-ACTIVE: orange;
+  --LINK-COLOR: #000;
+  --LINK-HOVER: hsla(0, 0%, 0%, 0.6);
+  --NAV-BGCOLOR: white;
+
+  /* BORDERS */
+  --BORDERS: 1px solid var(--BORDER-COLOR);
+  --BORDER-RADIUS: 15px;
+
+  /* STANDARD PADDING */
+  --PADDING-TB: 0.25em;
+  --PADDING-SIDE: 2.5%;
+
+  /* STANDARD MARGIN */
+  --MARGIN: clamp(1em, 2.5vh, 1.5em) 0;
+}
+
+/* UTILITY CLASSES */
+.offscreen {
+  position: absolute;
+  left: -10000px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.center {
+  text-align: center;
+}
+
+/* GENERAL STYLES */
+html {
+  scroll-behavior: smooth;
+  font-size: var(--FS);
+  font-family: var(--FF);
+  background-color: var(--BGCOLOR);
+  background-image: var(--BGIMAGE);
+}
+
+body {
+  background-color: var(--BODY-BGCOLOR);
+  color: var(--FONT-COLOR);
+  min-height: 100vh;
+  max-width: 800px;
+  margin: 0 auto;
+  border-left: var(--BORDERS);
+  border-right: var(--BORDERS);
+  box-shadow: 0 0 10px var(--BORDER-COLOR);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--FF-HEADINGS);
+  letter-spacing: 0.1em;
+}
+
+h2,
+h3 {
+  margin-bottom: 1em;
+  color: var(--HIGHLIGHT-COLOR);
+}
+
+p {
+  line-height: 1.5;
+}
+
+a:any-link {
+  color: var(--LINK-COLOR);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--LINK-HOVER);
+}
+
+a:active {
+  color: var(--LINK-ACTIVE);
+}
+
+/* HEADER STYLES */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.header__h1 {
+  text-align: center;
+  background-color: var(--HEADER-BGCOLOR);
+  color: var(--HEADER-COLOR);
+  padding: var(--PADDING-TB) var(--PADDING-SIDE);
+}
+
+.header__nav {
+  background-color: var(--NAV-BGCOLOR);
+  border-bottom: var(--BORDERS);
+  font-weight: bold;
+  box-shadow: 0 6px 5px -5px var(--BORDER-COLOR);
+}
+
+.header__ul {
+  padding: var(--PADDING-TB);
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+  list-style-type: none;
+  margin: 0;
+}
+.header__ul li {
+  margin-right: 20px;
+}
+
+.header__ul li:last-child {
+  margin-right: 0;
+}
+/* HERO STYLES */
+.hero {
+  position: relative;
+}
+
+.hero__h2 {
+  background-color: var(--HERO-BGCOLOR);
+  color: var(--HERO-COLOR);
+  padding: 0.25em 0.5em;
+  letter-spacing: 0.1rem;
+  text-shadow: 2px 2px 5px var(--BORDER-COLOR);
+  position: absolute;
+  top: -100px;
+  left: 20px;
+  animation: showWelcome 0.5s ease-in-out 1s forwards;
+}
+
+@keyframes showWelcome {
+  0% {
+    top: -20px;
+    transform: skew(0deg, -5deg) scaleY(0);
+  }
+
+  80% {
+    top: 30px;
+    transform: skew(10deg, -5deg) scaleY(1.2);
+  }
+
+  100% {
+    top: 20px;
+    transform: skew(-10deg, -5deg) scaleY(1);
+  }
+}
+
+/* || FOOTER */
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  background-color: var(--HEADER-BGCOLOR);
+  color: var(--HEADER-COLOR);
+  padding: var(--PADDING-TB) var(--PADDING-SIDE);
+  text-align: center;
+}
+
+/* || FOOTER */
+.main {
+  padding: var(--PADDING-TB) var(--PADDING-SIDE);
+}
+
+.main__article {
+  scroll-margin-top: 6.5rem;
+  margin: var(--MARGIN)
+}
+
+.main__article:first-child {
+  margin-top: 1em;
+}
+
+.main__article:last-child {
+  min-height: calc(100vh - 20rem);
+}
+
+/* || ABOUT */
+.about__trivia {
+  margin: var(--MARGIN)
+}
+
+.about__trivia-answer {
+  margin-top: 1em
+}
+
+/* || CONTACT */
+
+.contact__h2 {
+  margin: 0;
+}
+
+.contact__fieldset {
+  border: none;
+}
+
+.contact__p {
+  margin: 1em 0;
+}
+
+.contact__label {
+  display: block;
+  font-weight: bold;
+}
+
+.contact__input,
+.contact__textarea {
+  padding: 0.5em;
+  border-radius: 15px;
+  border-width: 2px;
+  width: 100%
+}
+.contact__box {
+  border-radius: 5px;
+  padding: 0.5em;
+  margin: 1em 0;
+}
+.contact__button {
+  padding: 0.5em;
+  border-radius: var(--BORDER-RADIUS);
+  background-color: var(--HIGHLIGHT-COLOR);
+  color: var(--HEADER-COLOR);
+}
+
+/* || MENU */
+table,
+thead,
+tbody,
+tfoot,
+tr {
+  width: 100%;
+}
+
+/* Styles for table header */
+.menu__header {
+  background-color: var(--BGCOLOR); 
+  border: var(--BORDERS); 
+  padding: var(--PADDING-TB) var(--PADDING-SIDE); 
+  text-align: left;
+}
+
+/* Styles for menu items */
+.menu__item {
+  border: var(--BORDERS); 
+  background-color: var(--BGCOLOR-FADE); 
+  padding: var(--PADDING-TB) var(--PADDING-SIDE); 
+  text-align: left;
+}
+
+/* Styles for Crunchy tacos */
+.menu__cr {
+  background-color: var(--BGCOLOR-FADE); 
+}
+
+/* Styles for Soft tacos */
+.menu__sf {
+  background-color: var(--BGCOLOR-FADE); 
+}
+
+/* Styles for table footer */
+tfoot {
+  background-color: var(--BGCOLOR-FADE); 
+}
+
+tfoot td {
+  font-weight: bolder;
+  border: var(--BORDERS); 
+  padding: var(--PADDING-TB) var(--PADDING-SIDE); 
+  text-align: center;
+}
+
+/* Styles for the form container */
+#order-form-container {
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 20px;
+  background-color: var(--BGCOLOR-FADE);
+  border-radius: 10px;
+}
+
+/* Styles for form headings */
+#order-form-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: var(--FONT-COLOR);
+}
+
+/* Styles for form labels */
+#order-form-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--FONT-COLOR);
+}
+
+/* Styles for form inputs */
+#order-form-container input[type="text"],
+#order-form-container input[type="email"],
+#order-form-container input[type="tel"],
+#order-form-container input[type="number"],
+#order-form-container input[type="submit"],
+#order-form-container select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--BORDER-COLOR);
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: var(--BODY-BGCOLOR);
+  color: var(--FONT-COLOR);
+}
+
+/* Styles for form submit button */
+#order-form-container input[type="submit"] {
+  background-color: var(--HIGHLIGHT-COLOR);
+  color: var(--HEADER-COLOR);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#order-form-container input[type="submit"]:hover {
+  background-color: #555;
+}
+
+/* Styles for form select */
+#order-form-container select {
+  appearance: none;
+}
+
+/* Styles for form extras input */
+#order-form-container input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid var(--BORDER-COLOR);
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: var(--BODY-BGCOLOR);
+  color: var(--FONT-COLOR);
+}
+
+/* Styles for form validation messages */
+#order-form-container input:invalid {
+  border-color: #ff0000;
+}
+
+#order-form-container input:invalid + label::after {
+  content: ' *';
+  color: #ff0000;
+}
+
+@media screen and (min-width: 576px) {
+  .header__h1::before,
+  .header__h1::after {
+    content: '🌮';
+  }
+
+  .menu__header,
+  .menu__cr,
+  .menu__sf,
+  .menu__cs {
+    font-size: 125%;
+  }
+}
